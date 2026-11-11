@@ -1,0 +1,47 @@
+{
+  "name": "dsh-realtime-voice",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Realtime voice phone call with a DSH agent persona: local VAD + ASR + TTS engine, LLM via DSH or an OpenAI-compatible API.",
+  "license": "MIT",
+  "icon": "./icon.svg",
+  "keywords": ["dsh-plugin", "deepseek-harness", "voice", "realtime"],
+  "engines": {
+    "node": ">=24.9",
+    "dsh": ">=0.2.2-rc.1 <0.3.0-0"
+  },
+  "exports": {
+    ".": "./dsh-plugin.mjs",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "dsh-plugin.mjs",
+    "host",
+    "client.js",
+    "engine",
+    "scripts",
+    "cordis.bundle.yml",
+    "icon.svg",
+    "locale/*.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "ws": "^8.18.3"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": { "patch": "./cordis.bundle.yml" },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings-general",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-tool"
+      ]
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "name": "dsh-realtime-voice-clone",
+  "service": {
+    "concurrency": 1,
+    "freeze_after_warmup": true,
+    "cfg_scales": [
+      1.0
+    ]
+  },
+  "stages": {
+    "text_encoder": {
+      "graphs": [
+        {
+          "batch_size": 1,
+          "token_length": 32
+        },
+        {
+          "batch_size": 1,
+          "token_length": 64
+        },
+        {
+          "batch_size": 1,
+          "token_length": 96
+        },
+        {
+          "batch_size": 1,
+          "token_length": 128
+        },
+        {
+          "batch_size": 1,
+          "token_length": 160
+        },
+        {
+          "batch_size": 1,
+          "token_length": 192
+        },
+        {
+          "batch_size": 1,
+          "token_length": 224
+        },
+        {
+          "batch_size": 1,
+          "token_length": 256
+        },
+        {
+          "batch_size": 2,
+          "token_length": 32
+        },
+        {
+          "batch_size": 2,
+          "token_length": 64
+        },
+        {
+          "batch_size": 2,
+          "token_length": 96
+        },
+        {
+          "batch_size": 2,
+          "token_length": 128
+        },
+        {
+          "batch_size": 2,
+          "token_length": 160
+        },
+        {
+          "batch_size": 2,
+          "token_length": 192
+        },
+        {
+          "batch_size": 2,
+          "token_length": 224
+        },
+        {
+          "batch_size": 2,
+          "token_length": 256
+        }
+      ]
+    },
+    "backbone_prefill": {
+      "graphs": [
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 32
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 64
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 96
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 128
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 160
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 192
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 224
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 256
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 288
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 320
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 352
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 384
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 416
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 448
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 480
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 512
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 544
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 576
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 608
+        },
+        {
+          "branch_batch_size": 1,
+          "sequence_length": 640
+        }
+      ]
+    },
+    "backbone_decode": {
+      "graphs": [
+        {
+          "branch_batch_size": 1
+        }
+      ]
+    },
+    "depth_decoder": {
+      "graphs": [
+        {
+          "batch_size": 1
+        }
+      ]
+    },
+    "codec": {
+      "graphs": [
+        {
+          "num_lanes": 1,
+          "chunk_frames": 1
+        }
+      ]
+    }
+  },
+  "warmup_request": {
+    "template": "tts_plain",
+    "text": "The cat sat on the mat.",
+    "instruction": "",
+    "speaker": "S0",
+    "seed": 42
+  }
+}

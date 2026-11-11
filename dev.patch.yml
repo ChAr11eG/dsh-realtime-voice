@@ -1,0 +1,7 @@
+# Development overlay: load this checkout without installing it.
+#   dsh web --patch ./dev.patch.yml --no-open
+- insert:
+    - id: realtime-voice
+      name: ./dsh-plugin.mjs
+      config:
+        dataDir: !!js dshHomePath('realtime-voice')
